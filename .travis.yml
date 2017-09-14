@@ -1,0 +1,11 @@
+
+      language: objective-c
+      os: osx
+      osx_image: xcode8.2
+      install:
+        - travis_retry gem install xcpretty
+      xcode_project: comm_admins/ble/ios/RNBluetoothLE.xcodeproj
+      xcode_scheme: comm_admins/ble/ios/RNBluetoothLETests
+      script:
+        - cd ./comm_admins/ble/ios
+        - xcodebuild -scheme RNBluetoothLE -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty
